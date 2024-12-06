@@ -12,9 +12,10 @@ import { RiTwitterXLine } from "react-icons/ri";
 
 interface Props {
   props: any;
+  locale: any;
 }
 
-const Navigation = ({ props }: Props) => {
+const Navigation = ({ props, locale }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const usePath = usePathname();
   const router = useRouter();
@@ -41,7 +42,7 @@ const Navigation = ({ props }: Props) => {
     <div
       className={`${styles.container} absolute z-50 w-full flex justify-between p-10`}
     >
-      <Link href="/" className="z-50">
+      <Link href={`/${locale.locale}`} className="z-50">
         <Image
           src="/logo.png"
           alt="Logo"
@@ -63,19 +64,17 @@ const Navigation = ({ props }: Props) => {
       {isOpen && (
         <nav className="fixed top-0 left-0 h-full w-full z-30 bg-[#EFF0EB] flex items-center justify-center text-center flex-col gap-14">
           <div className="flex items-center gap-5">
-            <button
-              onClick={() => changeLanguage("sv")}
+            <Link href="/sv"
               className="flex text-[#9B6D6F] medium text-[20px]"
             >
               SV
-            </button>
+            </Link>
             <span className="text-[#9B6D6F]">|</span>
-            <button
-              onClick={() => changeLanguage("en")}
+            <Link href="/en"
               className="flex text-[#9B6D6F] medium text-[20px]"
             >
-              ENG
-            </button>
+              EN
+            </Link>
             <span className="text-[#9B6D6F]">|</span>
             <button
               onClick={() => changeLanguage("fr")}
@@ -84,6 +83,7 @@ const Navigation = ({ props }: Props) => {
               FR
             </button>
           </div>
+
           <div className="flex flex-col gap-5">
             {exampleData.map((el: any) => {
               return (

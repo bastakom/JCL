@@ -1,4 +1,4 @@
-import LinkBtn from "@/app/[lang]/components/Link/Link";
+import LinkBtn from "@/components/Link/Link";
 import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 

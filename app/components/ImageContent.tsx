@@ -4,7 +4,6 @@ import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 
 export const ImageContent = ({ blok }: any) => {
-  console.log(blok);
   return (
     <div
       {...storyblokEditable}

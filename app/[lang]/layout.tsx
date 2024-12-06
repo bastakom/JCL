@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-import { StoryblokProvider } from "@/components/StoryblokProvider";
+
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+
+import { StoryblokProvider } from "app/components/StoryblokProvider";
 import "./globals.scss";
 
 export const metadata: Metadata = {

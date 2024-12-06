@@ -1,68 +1,47 @@
-/* import { NextResponse } from 'next/server';
+import { NextResponse, type NextRequest } from "next/server";
+import { defaultLocale } from "constants/locales";
+import { i18n } from "i18n.config";
 
-let locales = ['sv', 'en'];
-
-// Get the preferred locale, defaulting to 'sv'
-function getLocale(request: any) {
-  return 'sv';
-}
-
-export function middleware(request: any) {
-  // Check if there is any supported locale in the pathname
-  const { pathname } = request.nextUrl;
-
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
-
-  if (pathnameHasLocale) return;
-
-  if (
-    request.nextUrl.pathname.startsWith('/_next') ||
-    request.nextUrl.pathname.includes('/api/')
-  )
-    return;
-
-  // Redirect if there is no locale
-  const locale = getLocale(request);
-  request.nextUrl.pathname = `/${locale}${pathname}`;
-  // e.g. incoming request is /coaching
-  // The new URL is now /sv/coaching
-  return NextResponse.redirect(request.nextUrl);
-}
-
-export const config = {
-  matcher: [
-    // Skip all internal paths (_next)
-    '/((?!api|_next/static|_next/image|img/|favicon.ico|robots.txt|sitemap.xml).*)',
-  ],
-}; */
-
-import { NextRequest, NextResponse } from "next/server";
-let locales = ["sv", "en"];
-let defaultLocale = "sv";
-// Get the preferred locale, similar to the above or using a library
-function getLocale(request: NextRequest) {
-  return defaultLocale;
-}
 export function middleware(request: NextRequest) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+
+  if (
+    pathname.startsWith(`/${defaultLocale}/`) ||
+    pathname === `/${defaultLocale}`
+  ) {
+    // The incoming request is for /en/whatever, so we'll reDIRECT to /whatever
+    return NextResponse.redirect(
+      new URL(
+        pathname.replace(
+          `/${defaultLocale}`,
+          pathname === `/${defaultLocale}` ? "/" : ""
+        ),
+        request.url
+      )
+    );
+  }
+
+  const pathnameIsMissingLocale = i18n.locales.every(
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
-  if (pathnameHasLocale) return;
-  // Redirect if there is no locale
-  const locale = getLocale(request);
-  request.nextUrl.pathname = `/${locale}${pathname}`;
-  // e.g. incoming request is /products
-  // The new URL is now /en-US/products
-  return NextResponse.redirect(request.nextUrl);
+
+  if (pathnameIsMissingLocale) {
+    // Now for EITHER /en or /nl (for example) we're going to tell Next.js that the request is for /en/whatever
+    // or /nl/whatever, and then reWRITE the request to that it is handled properly.
+    return NextResponse.rewrite(
+      new URL(
+        `/${defaultLocale}${pathname}${request.nextUrl.search}`,
+        request.nextUrl.href
+      )
+    );
+  }
 }
+
 export const config = {
   matcher: [
     // Skip all internal paths (_next)
-    "/((?!api|_next/static|_next/image|img/|favicon.ico|robots.txt|sitemap.xml).*)",
+    "/((?!_next).*)",
     // Optional: only run on root (/) URL
     // '/'
   ],

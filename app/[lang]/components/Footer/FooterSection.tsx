@@ -20,8 +20,9 @@ interface FooterSectionProps {
     site_title: string;
     footer_menu: any;
   };
+  lang: any;
 }
-const FooterSection = ({ props }: FooterSectionProps) => {
+const FooterSection = ({ props, lang }: FooterSectionProps) => {
   return (
     <>
       <div className="bg-[#9B6D6F] p-20 relative">
@@ -74,7 +75,7 @@ const FooterSection = ({ props }: FooterSectionProps) => {
         />
         <div className="flex gap-14 mt-10 justify-center text-center text-[20px] text-white">
           {props.footer_menu.map((el: any) => (
-            <Link href={`${el.link.cached_url}`}>{el.title}</Link>
+            <Link href={`/${lang.lang}/${el.link.cached_url}`}>{el.title}</Link>
           ))}
         </div>
         <div className="flex gap-10 items-center justify-center">
@@ -96,7 +97,7 @@ const FooterSection = ({ props }: FooterSectionProps) => {
             Privacy Policy
           </Link>
           |
-          <Link href="" className="">
+          <Link href={`/${lang.lang}/coaching`} className="">
             Cookies
           </Link>
         </div>
