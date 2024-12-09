@@ -34,7 +34,7 @@ const Navigation = ({ props, locale }: Props) => {
     <div className={`absolute top-0 z-50 w-full flex justify-between p-10`}>
       <Link href={`/${locale.locale}`} className="z-50">
         <Image
-          src="/logo.png"
+          src="https://a.storyblok.com/f/314984/802x176/c8f488493d/jcl_logo.png"
           alt="Logo"
           width={253}
           height={50}
