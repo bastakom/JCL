@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import styles from "../Header.module.scss";
 import { usePathname, useRouter } from "next/navigation";
 import { IoCloseOutline } from "react-icons/io5";
 import { TbMenu } from "react-icons/tb";
@@ -32,9 +31,7 @@ const Navigation = ({ props, locale }: Props) => {
   };
 
   return (
-    <div
-      className={`${styles.container} absolute top-0 z-50 w-full flex justify-between p-10`}
-    >
+    <div className={`absolute top-0 z-50 w-full flex justify-between p-10`}>
       <Link href={`/${locale.locale}`} className="z-50">
         <Image
           src="/logo.png"
