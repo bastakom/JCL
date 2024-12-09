@@ -31,16 +31,9 @@ const Navigation = ({ props, locale }: Props) => {
     setIsOpen(!isOpen);
   };
 
-  const exampleData = [
-    { title: "Home", link: "/" },
-    { title: "About", link: "/about" },
-    { title: "Services", link: "/services" },
-    { title: "Contact", link: "/contact" },
-  ];
-
   return (
     <div
-      className={`${styles.container} absolute z-50 w-full flex justify-between p-10`}
+      className={`${styles.container} absolute top-0 z-50 w-full flex justify-between p-10`}
     >
       <Link href={`/${locale.locale}`} className="z-50">
         <Image
@@ -53,7 +46,7 @@ const Navigation = ({ props, locale }: Props) => {
       </Link>
       <button
         onClick={handleOpenMenu}
-        className="bg-[#4A2222] p-4 rounded-full z-50 fixed right-10 top-5"
+        className="bg-[#4A2222] p-2 lg:p-4 rounded-full z-50 fixed right-4 lg:right-10 top-4 lg:top-5"
       >
         {!isOpen ? (
           <TbMenu fontSize={40} color="white" />
@@ -64,15 +57,11 @@ const Navigation = ({ props, locale }: Props) => {
       {isOpen && (
         <nav className="fixed top-0 left-0 h-full w-full z-30 bg-[#EFF0EB] flex items-center justify-center text-center flex-col gap-14">
           <div className="flex items-center gap-5">
-            <Link href="/sv"
-              className="flex text-[#9B6D6F] medium text-[20px]"
-            >
+            <Link href="/sv" className="flex text-[#9B6D6F] medium text-[20px]">
               SV
             </Link>
             <span className="text-[#9B6D6F]">|</span>
-            <Link href="/en"
-              className="flex text-[#9B6D6F] medium text-[20px]"
-            >
+            <Link href="/en" className="flex text-[#9B6D6F] medium text-[20px]">
               EN
             </Link>
             <span className="text-[#9B6D6F]">|</span>
@@ -85,10 +74,11 @@ const Navigation = ({ props, locale }: Props) => {
           </div>
 
           <div className="flex flex-col gap-5">
-            {exampleData.map((el: any) => {
+            {props.menu.map((el: any) => {
               return (
                 <Link
-                  href=""
+                  onClick={handleOpenMenu}
+                  href={`/${locale.locale}/${el.link.cached_url}`}
                   className="text-[26px] xl:text-[37px flex flex-col text-[#9B6D6F] hover:text-[#E9A06D] medium"
                 >
                   <span>{el.title}</span>

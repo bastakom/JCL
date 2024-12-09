@@ -6,6 +6,10 @@
 h1 {
   font-size: 48px;
   font-weight: bold;
+  @media (max-width: 768px) {
+    font-size: 32px;
+    line-height: 45px;
+  }
 }
 
 // Medium heading
@@ -16,15 +20,27 @@ h2 {
 
 // Small heading
 h3 {
-  font-size: 35px;
+  font-size: 30px;
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+    line-height: 38px;
+  }
 }
 
 h4 {
   font-size: 28px;
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+    line-height: 30px;
+  }
 }
 
 p {
   font-size: 18px;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 
 .button {
@@ -52,6 +68,9 @@ p {
 .container {
   margin: 0 auto;
   max-width: 80%;
+  @media screen and (max-width: 768px) {
+    max-width: 90%;
+  }
 }
 
 .form {
@@ -62,7 +81,6 @@ p {
   }
 }
 
-
 .render-content {
   ol {
     margin-left: 20px;
@@ -72,8 +90,8 @@ p {
     gap: 20px;
   }
   ul {
-    margin-top: 20px;
-    list-style: circle;
+    margin: 20px 0;
+    list-style: disc;
     margin-left: 20px;
     display: flex;
     flex-direction: column;

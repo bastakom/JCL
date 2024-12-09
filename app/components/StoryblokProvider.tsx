@@ -8,6 +8,7 @@ import { Link } from "./Link";
 import { TextArea } from "./TextArea";
 import { ImageContent } from "./ImageContent";
 import { TilesBlock } from "./Tilesblock";
+import { Faq } from "./Faq";
 
 storyblokInit({
   components: {
@@ -18,6 +19,7 @@ storyblokInit({
     text_area: TextArea,
     image_content: ImageContent,
     tilesblock: TilesBlock,
+    faq: Faq,
   },
   enableFallbackComponent: true,
 });
