@@ -78,8 +78,10 @@ const FooterSection = ({ props, lang }: FooterSectionProps) => {
           alt={props.site_title}
         />
         <div className="flex flex-col lg:flex-row gap-5 lg:gap-14 lg:mt-10 justify-center text-center text-[20px] text-white">
-          {props.footer_menu.map((el: any) => (
-            <Link href={`/${lang.lang}/${el.link.cached_url}`}>{el.title}</Link>
+          {props.footer_menu.map((el: any, index: number) => (
+            <Link key={index} href={`/${lang.lang}/${el.link.cached_url}`}>
+              {el.title}
+            </Link>
           ))}
         </div>
         <div className="flex gap-10 items-center justify-center">

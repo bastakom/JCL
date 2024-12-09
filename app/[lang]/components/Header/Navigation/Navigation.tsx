@@ -71,10 +71,11 @@ const Navigation = ({ props, locale }: Props) => {
           </div>
 
           <div className="flex flex-col gap-5">
-            {props.menu.map((el: any) => {
+            {props.menu.map((el: any, index: number) => {
               return (
                 <Link
                   onClick={handleOpenMenu}
+                  key={index}
                   href={`/${locale.locale}/${el.link.cached_url}`}
                   className="text-[26px] xl:text-[37px flex flex-col text-[#9B6D6F] hover:text-[#E9A06D] medium"
                 >
