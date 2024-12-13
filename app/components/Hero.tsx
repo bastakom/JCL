@@ -3,7 +3,8 @@ import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 
 export const Hero = ({ blok }: any) => {
-  const { title, bg, subtitle, content, buttons, small_hero } = blok;
+  const { title, bg, subtitle, content, buttons, small_hero, text_white } =
+    blok;
 
   return (
     <div
@@ -21,23 +22,37 @@ export const Hero = ({ blok }: any) => {
         />
       )}
       {bg.filename && (
-        <div className="z-10 bg-black opacity-30 absolute w-full h-full" />
+        <div
+          className={`z-10 ${
+            !small_hero && "bg-black"
+          } opacity-20 absolute w-full h-full`}
+        />
       )}
       <div
         className={`flex flex-col z-10 ${
           small_hero
             ? `${
                 bg.filename
-                  ? "px-5 lg:px-0 lg:ml-20 justify-center lg:max-w-[600px] mt-20 pt-24 pb-20"
+                  ? "px-5 lg:px-0 lg:ml-20 justify-center lg:max-w-[600px] mt-20 pt-24 pb-20 "
                   : "ml-0 lg:max-w-[50%] pt-44 lg:py-44 px-10"
               }`
             : "justify-center items-center m-auto text-center lg:max-w-[50%] py-44"
         }   
-      gap-5 ${bg.filename ? "text-white" : "text-black"} max-w-full `}
+      gap-5 ${
+        text_white && bg.filename ? "text-white" : "text-black"
+      } max-w-full `}
       >
         <span className="underline underline-offset-4">{subtitle}</span>
         <h1 className={`${small_hero ? "" : "text-center"}`}>{title}</h1>
-        <p className={`${bg.filename ? "text-[18px] lg:text-[20px] lg:px-20 px-5" : "text-[20px] px-0"}`}>{content}</p>
+        <p
+          className={`${
+            bg.filename
+              ? "text-[18px] lg:text-[20px] lg:px-20 px-5"
+              : "text-[20px] px-0"
+          }`}
+        >
+          {content}
+        </p>
         <div className="flex flex-col lg:flex-row gap-5 mt-10">
           {buttons.map((el: any, index: number) => (
             <LinkBtn

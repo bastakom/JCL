@@ -32,9 +32,9 @@ const Navigation = ({ props, locale }: Props) => {
 
   return (
     <div className={`absolute top-0 z-50 w-full flex justify-between p-10`}>
-      <Link href={`/${locale.locale}`} className="z-50">
+      <Link href={`/${locale.locale}`} className="z-10">
         <Image
-          src="https://a.storyblok.com/f/314984/802x176/c8f488493d/jcl_logo.png"
+          src="https://a.storyblok.com/f/314984/446x94/4d237d7792/jcl_coaching_orginal_simple-2x.png"
           alt="Logo"
           width={253}
           height={50}
@@ -53,6 +53,18 @@ const Navigation = ({ props, locale }: Props) => {
       </button>
       {isOpen && (
         <nav className="fixed top-0 left-0 h-full w-full z-30 bg-[#EFF0EB] flex items-center justify-center text-center flex-col gap-14">
+          <Link
+            href={`/${locale.locale}`}
+            className="z-10 absolute left-10 top-10"
+          >
+            <Image
+              src="https://a.storyblok.com/f/314984/446x94/4d237d7792/jcl_coaching_orginal_simple-2x.png"
+              alt="Logo"
+              width={253}
+              height={50}
+              className="max-h-[50px]"
+            />
+          </Link>
           <div className="flex items-center gap-5">
             <Link href="/sv" className="flex text-[#9B6D6F] medium text-[20px]">
               SV

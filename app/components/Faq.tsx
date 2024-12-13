@@ -2,6 +2,7 @@
 
 import { storyblokEditable } from "@storyblok/react";
 import { useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
 import { SlArrowDown } from "react-icons/sl";
 import { render } from "storyblok-rich-text-react-renderer";
 
@@ -21,7 +22,14 @@ export const Faq = ({ blok }: any) => {
         <span className="subtilte underline underline-offset-4 lg:text-center text-[18px]">
           {blok.title}
         </span>
-        <span className="lg:text-center">{render(blok.sub_title)}</span>
+        {blok.arrow ? (
+          <span className="flex items-center gap-2 justify-center render-content">
+            {render(blok.sub_title)}
+            <FaArrowRight color="#d4384e" className="mt-1" />
+          </span>
+        ) : (
+          <span className="lg:text-center">{render(blok.sub_title)}</span>
+        )}{" "}
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto gap-10 lg:gap-20 xl:max-w-[80%]">
         {blok.fields.map((faq: any) => (
@@ -37,7 +45,9 @@ export const Faq = ({ blok }: any) => {
                 <SlArrowDown color="#E9A06D" />
               </button>
             </div>
-            <span className="lg:max-w-[70%] text-[18px]">{render(faq.sub_title)}</span>
+            <span className="lg:max-w-[70%] text-[18px]">
+              {render(faq.sub_title)}
+            </span>
             {openFaq === faq._uid && <span>{render(faq.content)}</span>}
           </div>
         ))}

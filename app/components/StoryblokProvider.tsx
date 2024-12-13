@@ -9,6 +9,7 @@ import { TextArea } from "./TextArea";
 import { ImageContent } from "./ImageContent";
 import { TilesBlock } from "./Tilesblock";
 import { Faq } from "./Faq";
+import { ImageTextArea } from "./image-text-area";
 
 storyblokInit({
   components: {
@@ -20,6 +21,7 @@ storyblokInit({
     image_content: ImageContent,
     tilesblock: TilesBlock,
     faq: Faq,
+    image_Textarea: ImageTextArea,
   },
   enableFallbackComponent: true,
 });
