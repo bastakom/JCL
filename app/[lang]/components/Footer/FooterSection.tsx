@@ -70,13 +70,23 @@ const FooterSection = ({ props, lang }: FooterSectionProps) => {
         </div>
       </div>
       <div className="bg-[#4A2222] flex justify-center py-10 lg:py-20 flex-col items-center gap-10 relative">
-        <Image
-          src={props.footer_logo.filename}
-          width={481}
-          height={220}
-          className="w-auto lg:w-[481px]"
-          alt={props.site_title}
-        />
+        <div className="flex justify-center flex-col gap-10">
+          <Image
+            src={`https://a.storyblok.com/f/314984/802x176/c8f488493d/jcl_logo.png`}
+            width={311}
+            height={220}
+            className="w-auto lg:w-[311px] mx-auto"
+            alt={props.site_title}
+          />
+          <Image
+            src={props.footer_logo.filename}
+            width={481}
+            height={220}
+            className="w-auto lg:w-[481px]"
+            alt={props.site_title}
+          />
+        </div>
+
         <div className="flex flex-col lg:flex-row gap-5 lg:gap-14 lg:mt-10 justify-center text-center text-[20px] text-white">
           {props.footer_menu.map((el: any, index: number) => (
             <Link key={index} href={`/${lang.lang}/${el.link.cached_url}`}>

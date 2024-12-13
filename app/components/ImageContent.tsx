@@ -23,11 +23,13 @@ export const ImageContent = ({ blok }: any) => {
           </div>
         )}
         <div className="flex flex-col gap-5">
-          <h4 className="uppcase underline underline-offset-2">
-            {blok.subtitle}
+          <h4 className="uppcase underline underline-offset-2 text-[18px]">
+            {blok?.subtitle}
           </h4>
+          
           <h3>{blok.title}</h3>
-          <div className="flex flex-col gap-5 render-content text-[18px]">
+          <div className="h-[30px] w-[200px] bg-blue" />
+          <div className="flex flex-col gap-5 render-content mb-10 text-[18px]">
             {render(blok.content)}
           </div>
           <div className={`${!blok.custom_btn && "mb-10 lg:mb-0"}`}>

@@ -11,6 +11,7 @@ const Form = ({ title }: any) => {
     email: "",
     phone: "",
     message: "",
+    subject: "",
   });
 
   const handleChange = (e: any) => {
@@ -46,6 +47,22 @@ const Form = ({ title }: any) => {
     <div className="">
       <span className="text-center mb-10 text-[29px]">{render(title)}</span>
       <form className="flex flex-col form gap-6" onSubmit={handleButtonClick}>
+        <select
+          required
+          className="lg:w-1/2"
+          value={formData.subject}
+          onChange={handleChange}
+          id="subject"
+          name="subject"
+        >
+          <option value="" disabled>
+            - Välj -
+          </option>
+          <option value="coaching">Coaching</option>
+          <option value="consulting">Consulting</option>
+          <option value="utbildning">Utbildning</option>
+          <option value="Annat">Annat</option>
+        </select>
         <input
           type="text"
           name="name"

@@ -78,6 +78,20 @@ p {
   textarea {
     padding: 10px;
     border-radius: 4px;
+    color: black;
+
+    ::placeholder {
+      color: #9da3b6;
+    }
+  }
+
+  select {
+    color: #9da3b6;
+    padding: 10px;
+    border-radius: 4px;
+    option {
+      color: black;
+    }
   }
 }
 
@@ -96,5 +110,9 @@ p {
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+
+  a {
+    color: #d4384e;
   }
 }

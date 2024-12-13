@@ -1,10 +1,10 @@
 import { Resend } from "resend";
 
 const usermail = process.env.MARKNAD_EMAIL;
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API);
 
 export async function POST(req: Request) {
-  const { name, email, message, phone } = await req.json();
+  const { name, email, message, phone, subject } = await req.json();
 
   const messageBody = `
     <div style="background-color: #f9f9f9; padding: 20px;">
@@ -12,6 +12,7 @@ export async function POST(req: Request) {
       <h3>Email: ${email}</h3>
       <p>tel: ${phone}</p>
       <p>Meddelande: ${message}</p>
+      <p>Ämne: ${subject}</p>
     </div>
   `;
   try {
