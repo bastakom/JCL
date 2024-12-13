@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 import { LuArrowRight } from "react-icons/lu";
 import { render } from "storyblok-rich-text-react-renderer";
 
@@ -14,7 +15,9 @@ export const TilesBlock = ({ blok }: any) => {
 
         <div
           className={`${
-            blok.columns === "1" ? "mb-10 lg:mb-0" : "grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-20 lg:mt-10"
+            blok.columns === "1"
+              ? "mb-10 lg:mb-0"
+              : "grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-20 lg:mt-10"
           }`}
         >
           {blok.tiles.map((tile: any) => (
@@ -39,9 +42,18 @@ export const TilesBlock = ({ blok }: any) => {
                   blok.center_content ? "mx-auto flex flex-col gap-10" : ""
                 }`}
               >
-                {render(tile.content)}
+                {blok.arrow ? (
+                  <span className="flex flex-row gap-2 items-center">
+                    {render(tile.content)}
+                    {blok.arrow && (
+                      <FaArrowRight color="#d4384e" className="mt-1" />
+                    )}
+                  </span>
+                ) : (
+                  render(tile.content)
+                )}
               </span>
-              {blok.center_content ? (
+              {blok.center_content && tile.button ? (
                 <div className="mt-10 text-center mb-10 lg:mb-0">
                   <Link
                     href=""
