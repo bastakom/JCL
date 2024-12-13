@@ -10,7 +10,7 @@ export const Hero = ({ blok }: any) => {
     <div
       {...storyblokEditable}
       className={`${
-        small_hero ? "" : "lg:py-20 mx-auto"
+        small_hero ? "" : "lg:py-20  mx-auto"
       } relative flex items-center`}
     >
       {bg.filename && (
@@ -33,12 +33,12 @@ export const Hero = ({ blok }: any) => {
           small_hero
             ? `${
                 bg.filename
-                  ? "px-5 lg:px-0 lg:ml-20 justify-center lg:max-w-[600px] mt-20 pt-24 pb-20 "
+                  ? "px-5 lg:px-0 lg:ml-20 justify-center lg:max-w-[600px] mt-20 pt-24 pb-20"
                   : "ml-0 lg:max-w-[50%] pt-44 lg:py-44 px-10"
               }`
             : "justify-center items-center m-auto text-center lg:max-w-[50%] py-44"
         }   
-      gap-5 ${
+      gap-10 ${
         text_white && bg.filename ? "text-white" : "text-black"
       } max-w-full `}
       >
