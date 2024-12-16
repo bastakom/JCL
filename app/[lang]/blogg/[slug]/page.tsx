@@ -40,7 +40,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
             alt={content.img.alt}
           />
         </div>
-        <div className="lg:pr-20">
+        <div className="lg:pr-20 flex flex-col mt-10 gap-5">
           <h1 className="my-5 lg:my-0">{name}</h1>
           <span>{render(content.content)}</span>
         </div>

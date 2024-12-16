@@ -58,7 +58,7 @@ export const Hero = ({ blok }: any) => {
             <LinkBtn
               key={index}
               title={el.title}
-              link={el.link.url}
+              link={el.link.cached_url}
               className={`${index <= 0 ? "button" : "button-secondary"}`}
             />
           ))}

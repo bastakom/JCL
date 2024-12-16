@@ -97,7 +97,7 @@ const Navigation = ({ props, locale }: Props) => {
               );
             })}
           </div>
-          <Link href="" className="button">
+          <Link href="/boka" onClick={handleOpenMenu} className="button">
             Boka en session
           </Link>
           <div className="flex gap-10 items-center justify-center">

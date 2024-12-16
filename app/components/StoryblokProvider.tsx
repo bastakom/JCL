@@ -10,6 +10,7 @@ import { ImageContent } from "./ImageContent";
 import { TilesBlock } from "./Tilesblock";
 import { Faq } from "./Faq";
 import { ImageTextArea } from "./image-text-area";
+import { Bokning } from "./Bokning";
 
 storyblokInit({
   components: {
@@ -22,6 +23,7 @@ storyblokInit({
     tilesblock: TilesBlock,
     faq: Faq,
     image_Textarea: ImageTextArea,
+    bokning: Bokning,
   },
   enableFallbackComponent: true,
 });

@@ -26,7 +26,7 @@ export const ImageContent = ({ blok }: any) => {
           <h4 className="uppcase underline underline-offset-2 text-[18px]">
             {blok?.subtitle}
           </h4>
-          <h3>{blok.title}</h3>
+          <h3 className="font-bold">{blok.title}</h3>
           <div className={`h-[3px] w-[50px] bg-[#E9A06D] `} />
           <div className="flex flex-col gap-5 render-content mb-10 text-[18px]">
             {render(blok.content)}
@@ -35,7 +35,7 @@ export const ImageContent = ({ blok }: any) => {
             {blok.buttons.map((href: any, index: number) => {
               return (
                 <Link
-                  href={href.link.url}
+                  href={href.link.cached_url}
                   className={`${
                     blok.custom_btn
                       ? "text-[#D4384E] flex gap-2 items-center text-[18px]"

@@ -27,13 +27,13 @@ export const TilesBlock = ({ blok }: any) => {
                 blok.center_content && "lg:max-w-[55%] mx-auto"
               }`}
             >
-              <span
+              <h3
                 className={`font-bold text-[20px] ${
                   blok.center_content && "text-center"
                 }`}
               >
                 {tile.title}
-              </span>
+              </h3>
               {!blok.center_content && (
                 <div className={`h-[3px] w-[50px] bg-[#E9A06D] `} />
               )}
@@ -56,7 +56,7 @@ export const TilesBlock = ({ blok }: any) => {
               {blok.center_content && tile.button ? (
                 <div className="mt-10 text-center mb-10 lg:mb-0">
                   <Link
-                    href=""
+                    href={`${tile.link.cached_url} `}
                     className={`justify-center gap-5 flex-col button mb-10 lg:mb-0`}
                   >
                     <span>{tile.button || "Läs mer"}</span>
@@ -64,7 +64,7 @@ export const TilesBlock = ({ blok }: any) => {
                 </div>
               ) : (
                 <Link
-                  href=""
+                  href={`/${tile.link.cached_url}` || ""}
                   className={`text-[#D4384E] flex gap-2 items-center ${
                     blok.center_content && "justify-center"
                   }`}

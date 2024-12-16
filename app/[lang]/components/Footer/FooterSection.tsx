@@ -5,6 +5,7 @@ import { GoMail } from "react-icons/go";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
+import { render } from "storyblok-rich-text-react-renderer";
 
 interface FooterSectionProps {
   props: {
@@ -29,13 +30,15 @@ const FooterSection = ({ props, lang }: FooterSectionProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 container text-white text-[18px]">
           <div className="flex flex-col gap-10">
             <div>
-              <h4 className="mb-5 underline-offset-2 underline">
+              <h4 className="mb-5 underline-offset-2 underline text-[18px]">
                 {props.form_title}
               </h4>
-              <p className="w-full lg:max-w-[60%]">{props.form_content}</p>
+              <span className="w-full lg:max-w-[60%] flex flex-col gap-5">
+                {render(props.form_content)}
+              </span>
             </div>
             <div className="flex flex-col gap-10">
-              <h4>{props.site_title}</h4>
+              <h4 className="text-[18px]">{props.site_title}</h4>
               <div className="flex flex-col gap-2">
                 <Link
                   href={`tel:${props.phone}`}

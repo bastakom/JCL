@@ -60,7 +60,7 @@ const page = async ({ params }: { params: { lang: string } }) => {
   const config = settings.data.data.story.content;
   return (
     <div className="pt-44 pb-24">
-      <div className="container">
+      <div className="container flex flex-col gap-5">
         <span className="subtitle underline underline-offset-2">
           {config.blogg_subtitle}
         </span>
