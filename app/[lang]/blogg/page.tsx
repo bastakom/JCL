@@ -71,19 +71,26 @@ const page = async ({ params }: { params: { lang: string } }) => {
         {res.data.data.stories.map((story: any) => {
           return (
             <div key={story.id}>
-              <Link href={`/blogg/${story.slug}`}>
-                <Image
-                  src={story.content.img.filename}
-                  alt="Logo"
-                  width={450}
-                  height={400}
-                  className="max-h-[400px] rounded-[7px]"
-                />
+              <Link href={`/blogg/${story.slug}`} className="block">
+                {story.content.img?.filename?.trim().length > 0 ? (
+                  <Image
+                    src={story.content.img.filename}
+                    alt={story.content.img.alt || "Logo"}
+                    width={450}
+                    height={400}
+                    className="max-h-[400px] rounded-[7px]"
+                  />
+                ) : (
+                  <div className="bg-gray-300 flex items-center justify-center h-[248.8px] max-h-[248.80px] rounded-[7px]">
+                    <span>Ingen bild tillgänglig</span>
+                  </div>
+                )}
                 <h2 className="text-[22px] my-5">{story.name}</h2>
                 <div className="line-clamp-3 mb-5">
                   {render(story.content.content)}
                 </div>
               </Link>
+
               <Link
                 href={`/blogg/${story.slug}`}
                 className="text-[#D4384E] flex gap-2 items-center"
