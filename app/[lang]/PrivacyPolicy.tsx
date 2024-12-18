@@ -66,7 +66,7 @@ const PrivacyPolicy = ({ content }: { content: any }) => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 pt-28">
+    <div className="container mx-auto px-4 py-8 pt-28 flex flex-col gap-4">
       <h1 className="text-3xl font-bold mb-6">{policy_title}</h1>
 
       {policy_content.content.map((el: any, index: number) =>
@@ -77,9 +77,11 @@ const PrivacyPolicy = ({ content }: { content: any }) => {
             )}
           </ul>
         ) : (
-          el.content.map((element: any, idx: number) =>
-            renderContent(element, `${index}-${idx}`)
-          )
+          <div key={index}>
+            {el.content.map((element: any, idx: number) =>
+              renderContent(element, `${index}-${idx}`)
+            )}
+          </div>
         )
       )}
     </div>
