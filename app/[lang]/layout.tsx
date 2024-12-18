@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 
 import { StoryblokProvider } from "app/components/StoryblokProvider";
 import "./globals.scss";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "JCL Coaching",
@@ -34,6 +35,15 @@ export default function RootLayout({
           <Header locale={lang} />
           {children}
           <Footer lang={lang} />
+          <Script src="https://consent.cookiebot.com/uc.js" />
+          <script
+            id="Cookiebot"
+            src="https://consent.cookiebot.com/uc.js"
+            data-cbid="fa0b30c6-f698-4b5e-8d8f-dee49a26a001"
+            data-blockingmode="manual"
+            type="text/javascript"
+            async
+          ></script>
         </body>
       </html>
     </StoryblokProvider>

@@ -127,7 +127,7 @@ const FooterSection = ({ props, lang }: FooterSectionProps) => {
             Privacy Policy
           </Link>
 
-          <Link href={`/${lang.lang}/coaching`} className="">
+          <Link href={`/cookies`} className="">
             Cookies
           </Link>
         </div>
