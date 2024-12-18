@@ -6,7 +6,9 @@ export const TextArea = ({ blok }: any) => {
   return (
     <div
       {...storyblokEditable}
-      className={`my-10 lg:my-0 ${blok.bg && "p-10 mb-0"} lg:p-14`}
+      className={`my-10 lg:my-0 ${blok.bg && "p-10 mb-0"} ${
+        blok.centered && "lg:pl-60"
+      } lg:p-14`}
       style={{ background: blok.bg ? blok.bg : "none" }}
     >
       <div className="container">
