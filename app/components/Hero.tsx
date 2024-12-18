@@ -34,7 +34,7 @@ export const Hero = ({ blok }: any) => {
             ? `${
                 bg.filename
                   ? "px-5 lg:px-0 lg:ml-20 justify-center lg:max-w-[600px] mt-20 pt-24 pb-20"
-                  : "ml-0 lg:max-w-[50%] pt-44 lg:py-44 px-10"
+                  : "ml-0 lg:max-w-[55%] pt-44 lg:py-44 px-10 pl-[8rem]"
               }`
             : "justify-center items-center m-auto text-center lg:max-w-[50%] py-44"
         }   

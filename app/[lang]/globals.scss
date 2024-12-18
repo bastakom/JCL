@@ -137,3 +137,18 @@ p {
     font-size: 22px;
   }
 }
+.spanEl p:first-of-type{
+ margin-bottom: 2rem;
+}
+.render_content{
+ 
+  a{
+    cursor: pointer;
+  }
+  ul{
+    list-style: disc;
+    padding-left: 1rem;
+    
+    
+  }
+}
