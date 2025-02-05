@@ -64,7 +64,7 @@ export const TilesBlock = ({ blok }: any) => {
                 </div>
               ) : (
                 <Link
-                  href={`/${tile.link.cached_url}` || ""}
+                  href={`${tile.link.cached_url.replace(/^\/(da|en)\//, "")}`}
                   className={`text-[#D4384E] flex gap-2 items-center ${
                     blok.center_content && "justify-center"
                   }`}
