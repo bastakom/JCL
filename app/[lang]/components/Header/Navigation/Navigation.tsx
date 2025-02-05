@@ -74,12 +74,9 @@ const Navigation = ({ props, locale }: Props) => {
               EN
             </Link>
             <span className="text-[#9B6D6F]">|</span>
-            <button
-              onClick={() => changeLanguage("fr")}
-              className="flex text-[#9B6D6F] medium text-[20px]"
-            >
+            <Link href="/fr" className="flex text-[#9B6D6F] medium text-[20px]">
               FR
-            </button>
+            </Link>
           </div>
 
           <div className="flex flex-col gap-5">
