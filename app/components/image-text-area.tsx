@@ -7,7 +7,7 @@ export const ImageTextArea = ({ blok }: any) => {
       {/* <pre>{JSON.stringify(blok, null, 2)}</pre>; */}
 
       <div className="lg:w-[40%] text-center flex flex-col gap-14 justify-center items-center">
-        <span className="textarea font-bold flex flex-col gap-2">
+        <span className="textarea italic font-semibold flex flex-col gap-2 spanEl">
           {render(blok.content)}
         </span>
         <Image

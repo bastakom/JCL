@@ -123,16 +123,16 @@ const FooterSection = ({ props, lang }: FooterSectionProps) => {
           className="flex flex-col lg:flex-row gap-5 lg:gap-10 text-white relative w-full text-center 
         justify-center lg:absolute right-0 lg:justify-end lg:right-10 bottom-5"
         >
-          <Link href="" className="">
+          <Link href={"/policy"} className="">
             Privacy Policy
           </Link>
 
-          <Link href={`/${lang.lang}/coaching`} className="">
+          <Link href={`/cookies`} className="">
             Cookies
           </Link>
         </div>
         <span className="text-white px-5 lg:px-0 text-center lg:text-left">
-          © 2025 JCL Humanistic Consulting. All rights reserved.
+          © 2025 JCL Humanistic Consulting AB. All rights reserved.
         </span>
       </div>
     </>

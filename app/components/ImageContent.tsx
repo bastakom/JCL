@@ -11,7 +11,11 @@ export const ImageContent = ({ blok }: any) => {
       className={`pt-10 mb-10 lg:mb-0 lg:p-20`}
       style={{ background: blok.bg }}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 -order-1 gap-0 lg:gap-24 items-center container">
+      <div
+        className={`grid grid-cols-1 lg:grid-cols-2 -order-1 gap-0 lg:gap-24 items-center container ${
+          blok.padding && "pt-24"
+        }`}
+      >
         {blok.image_left && (
           <div className="relative w-full h-[500px]">
             <Image
