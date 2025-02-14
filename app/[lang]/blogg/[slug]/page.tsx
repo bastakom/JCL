@@ -33,7 +33,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const hasContent = content?.content?.content?.length > 0;
   return (
     <div className="pt-28 pb-10 lg:py-44">
-      <div className="container lg:w-[70%]">
+      <div className="container">
         {hasImage ? (
           <div className="relative h-[300px] lg:h-[500px]">
             <Image
@@ -49,7 +49,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           </div>
         )}
 
-        <div className="lg:pr-20 flex flex-col mt-10 gap-5">
+        <div className="flex flex-col mt-10 gap-5 lg:w-[80%] lg:mx-auto">
           <h1 className="my-5 lg:my-0 lg:leading-[1.4]">{name}</h1>
           {hasContent ? (
             <span>{render(content.content)}</span>
