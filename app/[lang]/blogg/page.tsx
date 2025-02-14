@@ -85,8 +85,8 @@ const page = async ({ params }: { params: { lang: string } }) => {
                     <span>Ingen bild tillgänglig</span>
                   </div>
                 )}
-                <h2 className="text-[22px] my-5">{story.name}</h2>
-                <div className="line-clamp-3 mb-5">
+                <h2 className="text-[22px] my-3">{story.name}</h2>
+                <div className="line-clamp-3 mb-2">
                   {render(story.content.content)}
                 </div>
               </Link>
