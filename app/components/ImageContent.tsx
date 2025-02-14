@@ -17,7 +17,7 @@ export const ImageContent = ({ blok }: any) => {
         }`}
       >
         {blok.image_left && (
-          <div className="relative w-full h-[500px]">
+          <div className="relative w-full h-[350px] lg:h-[500px]">
             <Image
               src={blok.image.filename}
               alt={blok.image.alt}

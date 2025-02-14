@@ -1,7 +1,6 @@
 import { getStoryblokApi } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { FaArrowRight } from "react-icons/fa";
 import { render } from "storyblok-rich-text-react-renderer";
 
@@ -13,21 +12,10 @@ async function fetchBlogg(locale: string) {
   };
 
   const client = getStoryblokApi();
-  try {
-    const data = await client.get(`cdn/stories/`, sbParams);
 
-    if (!data) {
-      throw new Error("Not Found");
-    }
+  const data = await client.get(`cdn/stories/`, sbParams);
 
-    return { data };
-  } catch (error: any) {
-    if (error.response && error.response.status === 500) {
-      redirect("/500");
-    } else {
-      throw error;
-    }
-  }
+  return { data };
 }
 
 const fetchSettings = async (lang: string) => {
@@ -37,21 +25,10 @@ const fetchSettings = async (lang: string) => {
   };
 
   const client = getStoryblokApi();
-  try {
-    const data = await client.get(`cdn/stories/settings`, sbParams);
 
-    if (!data) {
-      throw new Error("Not Found");
-    }
+  const data = await client.get(`cdn/stories/settings`, sbParams);
 
-    return { data };
-  } catch (error: any) {
-    if (error.response && error.response.status === 500) {
-      redirect("/500");
-    } else {
-      throw error;
-    }
-  }
+  return { data };
 };
 
 const page = async ({ params }: { params: { lang: string } }) => {

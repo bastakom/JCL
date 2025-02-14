@@ -1,5 +1,4 @@
 import { getStoryblokApi, StoryblokStory } from "@storyblok/react/rsc";
-import { redirect } from "next/navigation";
 
 async function fetchData(slug: string, locale: string) {
   let sbParams = {
@@ -8,21 +7,12 @@ async function fetchData(slug: string, locale: string) {
   };
 
   const client = getStoryblokApi();
-  try {
-    const data = await client.get(`cdn/stories/${slug}`, sbParams);
 
-    if (!data) {
-      throw new Error("Not Found");
-    }
+  const data = await client.get(`cdn/stories/${slug}`, sbParams, {
+    cache: "no-store",
+  });
 
-    return { data };
-  } catch (error: any) {
-    if (error.response && error.response.status === 500) {
-      redirect("/500");
-    } else {
-      throw error;
-    }
-  }
+  return { data };
 }
 
 const Page = async ({ params }: { params: { slug: string; lang: string } }) => {
