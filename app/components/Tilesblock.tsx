@@ -7,7 +7,7 @@ export const TilesBlock = ({ blok }: any) => {
   return (
     <div style={{ background: blok.bg }}>
       <div
-        className={`container py-20 lg:py-24 flex flex-col gap-5 lg:px-20 ${
+        className={`container py-0 lg:py-24 flex flex-col gap-5 lg:px-20 ${
           blok.center_content && "items-center"
         }`}
       >

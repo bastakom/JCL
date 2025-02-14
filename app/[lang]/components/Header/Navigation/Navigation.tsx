@@ -52,10 +52,10 @@ const Navigation = ({ props, locale }: Props) => {
         )}
       </button>
       {isOpen && (
-        <nav className="fixed top-0 left-0 h-full w-full z-30 bg-[#EFF0EB] flex items-center justify-center text-center flex-col gap-14">
+        <nav className="fixed top-0 left-0 h-full w-full z-30 bg-[#EFF0EB] flex items-center justify-center text-center flex-col gap-14 py-14 lg:py-0">
           <Link
             href={`/${locale.locale}`}
-            className="z-10 absolute left-10 top-10"
+            className="z-10 absolute left-10 top-10 hidden"
           >
             <Image
               src="https://a.storyblok.com/f/314984/446x94/4d237d7792/jcl_coaching_orginal_simple-2x.png"
@@ -86,7 +86,7 @@ const Navigation = ({ props, locale }: Props) => {
                   onClick={handleOpenMenu}
                   key={index}
                   href={`/${locale.locale}/${el.link.cached_url}`}
-                  className="text-[26px] xl:text-[37px flex flex-col text-[#9B6D6F] hover:text-[#E9A06D] medium"
+                  className="text-[20px] xl:text-[37px flex flex-col text-[#9B6D6F] hover:text-[#E9A06D] medium"
                 >
                   <span>{el.title}</span>
                   <div className="h-[0.5px] mt-2 w-[500px] bg-[#707070]" />
