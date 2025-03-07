@@ -12,7 +12,6 @@ export const Faq = ({ blok }: any) => {
   const handleOpen = (faqId: string) => {
     setOpenFaq(openFaq === faqId ? null : faqId);
   };
-  const router = useRouter();
 
   return (
     <div
