@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { render } from "storyblok-rich-text-react-renderer";
 
-const Form = ({ title }: any) => {
+const Form = ({ title, lang }: any) => {
   const [sent, setSent] = useState(false);
   const [status, setStatus] = useState("");
   const [formData, setFormData] = useState({
@@ -56,17 +56,38 @@ const Form = ({ title }: any) => {
           name="subject"
         >
           <option value="" disabled>
-            - Välj -
+            {lang.lang == "en"
+              ? "- Choose -"
+              : lang.lang == "fr"
+              ? "- Choisir -"
+              : "- Välj -"}
           </option>
-          <option value="coaching">Coaching</option>
-          <option value="consulting">Consulting</option>
-          <option value="utbildning">Utbildning</option>
-          <option value="Annat">Annat</option>
+          <option value="coaching">
+            {lang.lang == "fr" ? "Entraînement" : "Coaching"}
+          </option>
+          <option value="consulting">
+            {lang.lang == "fr" ? "Consultante" : "Consulting"}
+          </option>
+          <option value="utbildning">
+            {lang.lang == "en"
+              ? "Education"
+              : lang.lang == "fr"
+              ? "Éducation"
+              : "Utbildning"}
+          </option>
+          <option value="Annat"></option>
+          {lang.lang == "en" ? "Other" : lang.lang == "fr" ? "Autre" : "Annat"}
         </select>
         <input
           type="text"
           name="name"
-          placeholder="För- och efternamn*"
+          placeholder={
+            lang.lang == "en"
+              ? "Sur- & lastname*"
+              : lang.lang == "fr"
+              ? "Avant et après"
+              : "För- och efternamn*"
+          }
           required
           value={formData.name}
           onChange={handleChange}
@@ -75,7 +96,7 @@ const Form = ({ title }: any) => {
         <input
           type="email"
           name="email"
-          placeholder="Email*"
+          placeholder={lang.lang == "sv" ? "E-post*" : "Email*"}
           required
           value={formData.email}
           onChange={handleChange}
@@ -84,7 +105,13 @@ const Form = ({ title }: any) => {
         <input
           type="phone"
           name="phone"
-          placeholder="Telefon"
+          placeholder={
+            lang.lang == "en"
+              ? "Phone*"
+              : lang.lang == "fr"
+              ? "Téléphone"
+              : "Telefon*"
+          }
           required
           value={formData.phone}
           onChange={handleChange}
@@ -93,22 +120,29 @@ const Form = ({ title }: any) => {
         <textarea
           rows={10}
           name="message"
-          placeholder="Meddelande"
+          placeholder={lang.lang == "sv" ? "Meddelande" : "Message"}
           value={formData.message}
           onChange={handleChange}
         />
         <label className="flex gap-2 items-start">
           <input type="checkbox" />
           <span className="text-white -mt-2">
-            Jag godkänner att ni hanterar mina personuppgifter enligt ovan. Läs
-            mer om hur vi behandlar dina personuppgifter här
+            {lang.lang == "en"
+              ? "I agree that you process my personal data as above. Read more about how we process your personal data here"
+              : lang.lang == "fr"
+              ? "J'accepte que vous traitiez mes données personnelles comme ci-dessus. En savoir plus sur la manière dont nous traitons vos données personnelles ici"
+              : "Jag godkänner att ni hanterar mina personuppgifter enligt ovan. Läs mer om hur vi behandlar dina personuppgifter här"}
           </span>
         </label>
         <button
           className="text-white border-2 border-white py-2  max-w-[150px] hover:bg-white hover:text-black transition-all duration-300"
           type="submit"
         >
-          Skicka
+          {lang.lang == "en"
+            ? "Send"
+            : lang.lang == "fr"
+            ? "Envoyer"
+            : "Skicka"}
         </button>
       </form>
     </div>

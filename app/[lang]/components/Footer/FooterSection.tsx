@@ -64,11 +64,15 @@ const FooterSection = ({ props, lang }: FooterSectionProps) => {
               href=""
               className="underline underline-offset-2 mb-10 lg:mb-0"
             >
-              LADDA NER JCL-COACHING APP
+              {lang.lang == "en"
+                ? "DOWNLOAD JCL-COACHING APP"
+                : lang.lang == "fr"
+                ? "TÉLÉCHARGER JCL-COACHING APP"
+                : "LADDA NER JCL-COACHING APP"}
             </Link>
           </div>
           <div>
-            <Form />
+            <Form lang={lang} />
           </div>
         </div>
       </div>
