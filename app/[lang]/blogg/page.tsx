@@ -35,6 +35,7 @@ const page = async ({ params }: { params: { lang: string } }) => {
   const res = await fetchBlogg(params.lang);
   const settings = await fetchSettings(params.lang);
   const config = settings.data.data.story.content;
+
   return (
     <div className="pt-44 pb-24">
       <div className="container flex flex-col gap-5">
@@ -69,7 +70,10 @@ const page = async ({ params }: { params: { lang: string } }) => {
               </Link>
 
               <Link
-                href={`/blogg/${story.slug}`}
+                href={`/${params.lang}/blogg/${story.slug.replace(
+                  /^\/(fr|en)\//,
+                  ""
+                )}`}
                 className="text-[#D4384E] flex gap-2 items-center"
               >
                 Läs mer
