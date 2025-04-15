@@ -9,21 +9,9 @@ async function fetchBlogg(slug: string) {
   };
 
   const client = getStoryblokApi();
-  try {
-    const data = await client.get(`cdn/stories/blogg/${slug}`, sbParams);
+  const data = await client.get(`cdn/stories/blogg/${slug}`, sbParams);
 
-    if (!data) {
-      throw new Error("Not Found");
-    }
-
-    return { data };
-  } catch (error: any) {
-    if (error.response && error.response.status === 500) {
-      redirect("/500");
-    } else {
-      throw error;
-    }
-  }
+  return { data };
 }
 
 const page = async ({ params }: { params: { slug: string } }) => {

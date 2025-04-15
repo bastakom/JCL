@@ -13,6 +13,7 @@ export const Hero = ({ blok }: any) => {
         small_hero ? "" : "lg:py-20  mx-auto"
       } relative flex items-center`}
     >
+      <div />
       {bg.filename && (
         <Image
           src={bg.filename}
@@ -24,10 +25,15 @@ export const Hero = ({ blok }: any) => {
       {bg.filename && (
         <div
           className={`z-10 ${
-            !small_hero && "bg-black"
-          } opacity-20 absolute w-full h-full`}
+            text_white ? "bg-black" : "bg-white"
+          } opacity-30 absolute w-full h-full`}
         />
       )}
+      <div
+        className={`z-10 ${
+          !small_hero && "bg-black"
+        } opacity-20 absolute w-full h-full`}
+      />
       <div
         className={`flex flex-col z-10 ${
           small_hero
