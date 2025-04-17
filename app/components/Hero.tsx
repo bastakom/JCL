@@ -41,7 +41,7 @@ export const Hero = ({ blok }: any) => {
                 bg.filename
                   ? "px-5 lg:px-0 lg:ml-20 justify-center lg:max-w-[600px] mt-20 pt-24 pb-20"
                   : "ml-0 lg:max-w-[55%] pt-44 lg:py-44 px-10 pl-[8rem]"
-              }`
+              }  `
             : "justify-center items-center m-auto text-center lg:max-w-[50%] py-44"
         }   
       gap-10 ${
@@ -52,9 +52,7 @@ export const Hero = ({ blok }: any) => {
         <h1 className={`${small_hero ? "" : "text-center"}`}>{title}</h1>
         <p
           className={`${
-            bg.filename
-              ? "text-[18px] lg:text-[20px] lg:px-20 px-5"
-              : "text-[20px] px-0"
+            bg.filename ? "text-[18px] lg:text-[20px]  " : "text-[20px] px-0"
           }`}
         >
           {content}
@@ -65,7 +63,9 @@ export const Hero = ({ blok }: any) => {
               key={index}
               title={el.title}
               link={el.link.cached_url}
-              className={`${index <= 0 ? "button" : "button-secondary"}`}
+              className={`text-center ${
+                index <= 0 ? "button" : "button-secondary"
+              }`}
             />
           ))}
         </div>
