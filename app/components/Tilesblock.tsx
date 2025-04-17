@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { LuArrowRight } from "react-icons/lu";
 import { render } from "storyblok-rich-text-react-renderer";
 
-export const TilesBlock = ({ blok }: any) => {
+export const TilesBlock = ({ blok, locale }: any) => {
   return (
     <div style={{ background: blok.bg }}>
       <div
@@ -64,7 +64,10 @@ export const TilesBlock = ({ blok }: any) => {
                 </div>
               ) : (
                 <Link
-                  href={`${tile.link.cached_url.replace(/^\/(da|en)\//, "")}`}
+                  href={`/${locale}/${tile.link.cached_url.replace(
+                    /^\/(fr|en)\//,
+                    ""
+                  )}`}
                   className={`text-[#D4384E] flex gap-2 items-center ${
                     blok.center_content && "justify-center"
                   }`}

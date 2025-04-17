@@ -8,9 +8,7 @@ async function fetchData(slug: string, locale: string) {
 
   const client = getStoryblokApi();
 
-  const data = await client.get(`cdn/stories/${slug}`, sbParams, {
-    cache: "no-store",
-  });
+  const data = await client.get(`cdn/stories/${slug}`, sbParams);
 
   return { data };
 }
@@ -19,9 +17,10 @@ const Page = async ({ params }: { params: { slug: string; lang: string } }) => {
   const pathname = params.slug;
   const slugName = pathname === undefined ? `home` : pathname;
   const story = await fetchData(slugName, params.lang);
- return (
+
+  return (
     <main>
-      <StoryblokStory story={story.data.data.story} />
+      <StoryblokStory story={story.data.data.story} locale={params.lang} />
     </main>
   );
 };

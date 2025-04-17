@@ -37,8 +37,8 @@ const page = async ({ params }: { params: { slug: string } }) => {
           </div>
         )}
 
-        <div className="lg:pr-20 flex flex-col mt-10 gap-5">
-          <h1 className="my-5 lg:my-0">{name}</h1>
+        <div className="flex flex-col mt-10 gap-5 lg:w-[80%] lg:mx-auto">
+          <h1 className="my-5 lg:my-0 lg:leading-[1.4]">{name}</h1>
           {hasContent ? (
             <span>{render(content.content)}</span>
           ) : (
