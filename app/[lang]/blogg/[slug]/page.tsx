@@ -1,7 +1,12 @@
-import { getStoryblokApi } from "@storyblok/react";
+import { apiPlugin, getStoryblokApi, storyblokInit } from "@storyblok/react";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { render } from "storyblok-rich-text-react-renderer";
+
+storyblokInit({
+  accessToken: process.env.STORYBLOK_TOKEN,
+  use: [apiPlugin],
+});
 
 async function fetchBlogg(slug: string) {
   let sbParams = {
