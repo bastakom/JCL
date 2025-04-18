@@ -1,4 +1,14 @@
-import { getStoryblokApi, StoryblokStory } from "@storyblok/react/rsc";
+import {
+  apiPlugin,
+  getStoryblokApi,
+  storyblokInit,
+  StoryblokStory,
+} from "@storyblok/react/rsc";
+
+storyblokInit({
+  accessToken: process.env.STORYBLOK_TOKEN,
+  use: [apiPlugin],
+});
 
 async function fetchData(slug: string, locale: string) {
   let sbParams = {
