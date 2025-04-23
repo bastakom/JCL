@@ -61,7 +61,7 @@ const FooterSection = ({ props, lang }: FooterSectionProps) => {
               </div>
             </div>
             <Link
-              href=""
+              href="https://apps.apple.com/se/app/puzzling-my-life/id6739561807"
               className="underline underline-offset-2 mb-10 lg:mb-0"
             >
               {lang.lang == "en"
