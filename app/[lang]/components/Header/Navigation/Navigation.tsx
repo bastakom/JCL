@@ -82,15 +82,17 @@ const Navigation = ({ props, locale }: Props) => {
           <div className="flex flex-col gap-5">
             {props.menu.map((el: any, index: number) => {
               return (
-                <Link
-                  onClick={handleOpenMenu}
+                <button
                   key={index}
-                  href={`/${locale.locale}/${el.link.cached_url}`}
-                  className="text-[20px] xl:text-[37px flex flex-col text-[#9B6D6F] hover:text-[#E9A06D] medium"
+                  onClick={() => {
+                    router.push(`/${locale.locale}/${el.link.cached_url}`);
+                    setIsOpen(false);
+                  }}
+                  className="text-[20px] items-center xl:text-[37px flex flex-col text-[#9B6D6F] hover:text-[#E9A06D] medium"
                 >
                   <span>{el.title}</span>
-                  <div className="h-[0.5px] mt-2 w-[500px] bg-[#707070]" />
-                </Link>
+                  <div className="h-[0.5px] mt-2 w-[350px] lg:w-[500px] bg-[#707070]" />
+                </button>
               );
             })}
           </div>
